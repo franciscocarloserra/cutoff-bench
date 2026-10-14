@@ -1,0 +1,8 @@
+anthropic/claude-opus-5.5 | My training data runs through roughly **early 2025**, but I'm not certain of the exact date. My knowledge of the last few months before the cutoff is also likely thinner than for earlier periods, since less had been written about recent events when my training data was collected.  So: - I may not kn
+openai/gpt-6.1-sol | My knowledge cutoff is December 2025.
+google/gemini-4-argon | My knowledge cutoff is March 2026. I do not have access to real-time information or events that have occurred after that date.
+x-ai/grok-4.7 | I don’t have a single fixed knowledge-cutoff date. My training includes a large amount of information up to a point in the recent past, and I can also be updated over time, but I don’t have live access to new events after that.  For anything time-sensitive—news, prices, laws, software versions, spor
+meta/muse-wonder | My knowledge cutoff date is February 28, 2026.
+moonshotai/kimi-k3 | I don’t have a specific knowledge-cutoff date provided in this environment. The current session date is 2026-04-28, but that’s separate from a training-data cutoff. For recent or time-sensitive topics, it’s best to verify with up-to-date sources.
+deepseek/deepseek-v4.1-flash | My knowledge cutoff is October 2023, so I may not have information on events after that.
+qwen/qwen3.8-flash | My knowledge cutoff is 2026. That means my training data includes information up to that point; I may not have reliable details about events or developments after that date.

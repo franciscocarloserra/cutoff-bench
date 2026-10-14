@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Main LLMs Cutoff Dates</title>
+<style>
+  :root {
+    --bg:#0d0e10; --fg:#dcdee2; --mute:#80868f; --dim:#5a5f67; --faint:#23262b; --grid:#131518; --grid-y:#34383f; --hover:#131519;
+    --cut:#eb5757; --know:#a8e6c1; --rel:#b9bdc4; --gap:#2f333a; --flag:#e5736a;
+    --label:184px; --side:56px; --row:42px;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0 auto; background:var(--bg); color:var(--fg); font:13px/1.5 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+         font-variant-numeric:tabular-nums; padding:32px 28px 64px; max-width:1240px; -webkit-font-smoothing:antialiased; }
+  h1 { font-size:18px; font-weight:600; letter-spacing:-.01em; text-align:center; margin:0 0 28px; }
+  .line { display:grid; grid-template-columns:var(--label) 1fr var(--side); align-items:center; }
+  .axis { height:24px; color:var(--dim); font-size:11px; }
+  .axis .track span { position:absolute; transform:translateX(-50%); bottom:4px; }
+  .axis .track span.y { color:var(--fg); font-weight:600; }
+  .track { position:relative; height:100%; }
+  .row > .line { height:var(--row); cursor:pointer; border-radius:6px; transition:background .15s; }
+  .row > .line:hover, .row.open > .line { background:var(--hover); }
+  .row > .line:hover .name, .row.open .name { color:#fff; }
+  .name { font-weight:600; text-align:right; padding-right:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--fg); transition:color .15s; }
+  .gl { position:absolute; top:0; bottom:0; width:1px; background:var(--grid); }
+  .gl.y { background:var(--grid-y); }
+  .gl.today { background:none; border-left:1px dashed #3a3e45; }
+  .gapbar { position:absolute; top:50%; height:1px; background:var(--gap); }
+  .dot { position:absolute; top:50%; border-radius:50%; background:var(--cut); transform:translate(-50%,-50%); z-index:2; }
+  .relline { position:absolute; top:50%; border-top:1px dotted #555a62; }
+  .know { position:absolute; top:50%; width:13px; height:13px; border:1.5px solid var(--know); background:var(--know); transform:translate(-50%,-50%) rotate(45deg); border-radius:2px; z-index:1; }
+  .rel { position:absolute; top:50%; width:0; height:0; border-top:5px solid transparent; border-bottom:5px solid transparent; border-left:8px solid var(--rel); transform:translate(-100%,-50%); opacity:.8; }
+  .nodate { position:absolute; left:8px; top:50%; transform:translateY(-50%); color:var(--dim); font-style:italic; font-size:11px; }
+  .side { color:var(--dim); font-size:11px; text-align:right; padding-right:6px; }
+  .detail { display:grid; grid-template-rows:0fr; transition:grid-template-rows .22s ease; }
+  .row.open .detail { grid-template-rows:1fr; }
+  .detail > div { overflow:hidden; }
+  .cols { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:32px; padding:8px var(--side) 22px var(--label); }
+  @media (max-width:900px) { .cols { grid-template-columns:1fr; padding-left:12px; padding-right:12px; } :root { --label:120px; } }
+  .q { font-size:11px; font-weight:600; color:var(--mute); margin:10px 0 0; }
+  .q:first-child { margin-top:2px; }
+  .qt { color:var(--dim); font-size:11px; margin:0 0 4px; }
+  .ans { border-left:2px solid var(--faint); padding:2px 0 2px 10px; margin:5px 0; }
+  .n { color:var(--cut); font-size:11px; margin-left:6px; }
+  .meta { color:var(--dim); font-size:11px; }
+  .flag { color:var(--flag); }
+  .newest { color:var(--know); font-size:11px; }
+  .txt-more { margin:2px 0 4px; }
+  .txt { white-space:pre-wrap; max-height:6.2em; overflow:hidden; cursor:pointer; }
+  .txt.clip { max-height:4.6em; -webkit-mask-image:linear-gradient(#000 60%, transparent); mask-image:linear-gradient(#000 60%, transparent); }
+  .txt.open { max-height:none; -webkit-mask-image:none; mask-image:none; }
+  .top3 { border-collapse:collapse; font-size:12px; }
+  .top3 td { padding:1px 12px 1px 0; vertical-align:top; }
+  .top3 td:first-child { color:var(--mute); }
+  .more, #bar button { background:none; border:1px solid var(--faint); border-radius:4px; color:var(--mute); padding:1px 10px; cursor:pointer; font:inherit; font-size:11px; }
+  .key { margin:18px 0 0 var(--label); color:var(--mute); font-size:11px; display:flex; gap:22px; }
+  .key b { font-weight:normal; margin-right:6px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; background:#111215; border-top:1px solid var(--faint); padding:5px 28px;
+         color:var(--dim); font-size:12px; display:flex; gap:16px; align-items:center; }
+  #legend { position:fixed; right:28px; bottom:38px; max-width:480px; background:#15171a; border:1px solid var(--faint); border-radius:6px;
+            padding:10px 14px; display:none; font-size:12px; color:var(--mute); }
+  #legend.open { display:block; }
+  #legend p { margin:5px 0; }
+</style>
+</head>
+<body>
+<h1>Main LLMs Cutoff Dates</h1>
+<div id="tl"></div>
+<div class="key">
+  <span><b style="color:var(--cut)">●</b>reported</span>
+  <span><b style="color:var(--know)">◆</b>remembered</span>
+  <span><b style="color:var(--rel)">▶</b>release</span>
+  <a href="https://github.com/franciscocarloserra/cutoff-bench" style="margin-left:auto;color:var(--mute)">repo</a>
+</div>
+<div id="legend"></div>
+<div id="bar"><span id="stat"></span><button id="lgbtn">Legend</button></div>
+<script>
+// ---- tunables ----
+const DATA_URL = "data/runs.jsonl";
+const TODAY = "2026-10-14";
+const X_START = "2023-06", X_END = "2026-11";
+const RELEASES = {  // OpenRouter release dates
+  "anthropic/claude-opus-5.5": "2026-09-22", "openai/gpt-6.1-sol": "2026-09-29",
+  "google/gemini-4-argon": "2026-10-13", "x-ai/grok-4.7": "2026-09-21", "meta/muse-wonder": "2026-10-12",
+  "moonshotai/kimi-k3": "2026-07-16", "deepseek/deepseek-v4.1-flash": "2026-09-10", "qwen/qwen3.8-flash": "2026-08-26",
+  "google/gemma-4-31b-it": "2026-04-02",
+};
+const GROUP_ORDER = ["us", "cn", "open"];  // row order by lab_group; unknown groups go last
+const QUESTIONS = {  // copied from ask.py; key order = display order in expanded rows
+  cutoff_month: "What is your knowledge cutoff date? Answer with the month and year only (format: Month YYYY).",
+  cutoff: "What is your knowledge cutoff date?",
+  cutoff_forced: "What is your knowledge cutoff? Give your single best estimate as a month and year, even if uncertain. Reply with only \"Month YYYY\", nothing else.",
+  sota_top3: "What are the top 3 state-of-the-art large language models you know of? Reply with exactly 3 lines, format: Lab | Model | Version. Nothing else.",
+  sota: "What are the top state-of-the-art large language models you know of?",
+};
+const QUESTION_LABELS = { cutoff: "Asked freely", cutoff_month: "Month & year", cutoff_forced: "Forced guess", sota_top3: "Top 3 models", sota: "Models known" };
+const DATE_Q_RE = /^cutoff/;           // questions whose answers are plotted as reported-cutoff dots
+const SOTA_Q = "sota", TOP3_Q = "sota_top3";  // answers give the "remembered" date; top3 = "Lab | Model | Version" lines
+// Reported-cutoff classification. Solid dot = answer is just a date (<= CLEAN_ANSWER_CHARS), or it contains exactly one
+// distinct month, month-precise, in a sentence stating the cutoff, without hedging. Anything else with a date = hollow.
+const CLEAN_ANSWER_CHARS = 30;
+const CUTOFF_SENT_RE = /cut-?off|training data|knowledge|my training/i;                    // sentence states the cutoff
+const NOT_CUTOFF_RE = /\b(current|currently|today|session|now|ranking|released|announced)\b/i;  // dates here are something else
+const VAGUE_RE = /\b(roughly|approximately|around|circa|likely|probably|possibly|perhaps|uncertain|estimate|not (fully |entirely )?(sure|certain)|I think|I believe|can[’']?t pin)\b/i;
+const NEG_BEFORE_RE = /(\bnot|\bnever|n[’']t)\b[^.\n]{0,15}$/i;  // date directly negated ("not March 2025")
+const REPORTED_STAT = "median of solid dots (all dots if none solid)";  // position used for the gap
+const REMEMBERED_STAT = "max";         // one diamond per row: newest model named across all sota/top3 samples
+const DOT_PX = 9, DOT_GROW_PX = 1.2, DOT_MAX_PX = 16;  // dot diameter grows with number of samples at that month
+const OWN_LAB_AFTER = "2025-12";       // ignore mentions of the answering lab's own models released after this (system-prompt leak, not memory)
+const HEDGE_RE = /since my (knowledge |training )?cutoff|likely newer|can[’']?t verify|not (yet )?released/i;  // skip sentences naming models the answer says it doesn't know
+const VERSION_DATE_RE = /^(\d{3}|\d{8}|\d{4}-\d\d(-\d\d)?|[A-Za-z]{3,9}\.? \d{4})$/;  // top3 version cells that are dates/build ids: ignored for matching
+const HIDDEN_PROMPT_EXCESS = 30;       // flag if prompt_tokens exceeds the per-question minimum by more than this
+const LIST_MAX = 5;                    // distinct answers shown per question before "view more"
+const LONG_TASK_MS = 100;
+// [regex, release "YYYY-MM", label, lab = model-id prefix]. Approx release months; o3 uses its Dec 2024 announcement.
+const KNOWN_RELEASES = [
+  [/\bGPT[\s-]?4(?![\w.]|[\s-]Turbo)/i, "2023-03", "GPT-4", "openai"],
+  [/\bGPT[\s-]?4[\s-]Turbo\b/i, "2023-11", "GPT-4 Turbo", "openai"],
+  [/\bGPT[\s-]?4o\b/i, "2024-05", "GPT-4o", "openai"],
+  [/\bo1\b(?!-mini)/, "2024-09", "o1", "openai"],
+  [/\bGPT[\s-]?4\.5\b/i, "2025-02", "GPT-4.5", "openai"],
+  [/\bo3\b(?!-mini)/, "2024-12", "o3", "openai"],
+  [/\bo4-mini\b/i, "2025-04", "o4-mini", "openai"],
+  [/\bGPT[\s-]?4\.1\b/i, "2025-04", "GPT-4.1", "openai"],
+  [/\bGPT[\s-]?5(?![\d.])/i, "2025-08", "GPT-5", "openai"],
+  [/\bgpt[\s-]?oss\b/i, "2025-08", "gpt-oss", "openai"],
+  [/\bGPT[\s-]?6/i, "2026-09", "GPT-6.1 Sol", "openai"],
+  [/\bClaude[\s-]?3(?![.\d])/i, "2024-03", "Claude 3", "anthropic"],
+  [/\b(?:Claude[\s-]?)?3\.5[\s-]?Sonnet\b|\bClaude[\s-]?3\.5\b(?![\s-]?Haiku)/i, "2024-06", "Claude 3.5 Sonnet", "anthropic"],
+  [/\b(?:Claude[\s-]?)?3\.5[\s-]?Haiku\b/i, "2024-10", "Claude 3.5 Haiku", "anthropic"],
+  [/\bClaude[\s-]?3\.7\b|\b3\.7[\s-]?Sonnet\b/i, "2025-02", "Claude 3.7 Sonnet", "anthropic"],
+  [/\bClaude[\s-]?4(?![.\d])|\b(?:Opus|Sonnet)[\s-]?4(?![.\d])/i, "2025-05", "Claude 4", "anthropic"],
+  [/\bOpus[\s-]?4\.1\b/i, "2025-08", "Opus 4.1", "anthropic"],
+  [/\bSonnet[\s-]?4\.5\b|\bClaude[\s-]?4\.5\b/i, "2025-09", "Sonnet 4.5", "anthropic"],
+  [/\bHaiku[\s-]?4\.5\b/i, "2025-10", "Haiku 4.5", "anthropic"],
+  [/\bOpus[\s-]?4\.5\b/i, "2025-11", "Opus 4.5", "anthropic"],
+  [/\bOpus[\s-]?5|\bClaude[\s-]?5/i, "2026-09", "Claude Opus 5.5", "anthropic"],
+  [/\bGemini[\s-]?1\.5\b/i, "2024-02", "Gemini 1.5", "google"],
+  [/\bGemini[\s-]?2(?:\.0)?(?![.\d])|\bGemini[\s-]?2\.x/i, "2024-12", "Gemini 2.0", "google"],
+  [/\bGemini[\s-]?2\.5\b/i, "2025-03", "Gemini 2.5", "google"],
+  [/\bGemini[\s-]?3(?![.\d])/i, "2025-11", "Gemini 3", "google"],
+  [/\bGemma[\s-]?3\b/i, "2025-03", "Gemma 3", "google"],
+  [/\bGemini[\s-]?4\b/i, "2026-10", "Gemini 4 Argon", "google"],
+  [/\bGrok[\s-]?1(?![.\d])/i, "2023-11", "Grok-1", "x-ai"],
+  [/\bGrok[\s-]?1\.5\b/i, "2024-03", "Grok-1.5", "x-ai"],
+  [/\bGrok[\s-]?2(?![.\d])/i, "2024-08", "Grok 2", "x-ai"],
+  [/\bGrok[\s-]?3(?![.\d])/i, "2025-02", "Grok 3", "x-ai"],
+  [/\bGrok[\s-]?4(?![.\d])/i, "2025-07", "Grok 4", "x-ai"],
+  [/\bGrok[\s-]?4\.[67]\b/i, "2026-09", "Grok 4.7", "x-ai"],
+  [/\bLlama[\s-]?3(?![.\d])/i, "2024-04", "Llama 3", "meta"],
+  [/\bLlama[\s-]?3\.1\b/i, "2024-07", "Llama 3.1", "meta"],
+  [/\bLlama[\s-]?3\.3\b/i, "2024-12", "Llama 3.3", "meta"],
+  [/\bLlama[\s-]?4\b/i, "2025-04", "Llama 4", "meta"],
+  [/\bMuse(?:[\s-]Wonder)?\b/, "2026-10", "Muse Wonder", "meta"],
+  [/\bDeepSeek[\s-]?V2(?![.\d])/i, "2024-05", "DeepSeek-V2", "deepseek"],
+  [/\bDeepSeek[\s-]?Coder[\s-]?V2\b/i, "2024-06", "DeepSeek-Coder-V2", "deepseek"],
+  [/\bDeepSeek[\s-]?V3/i, "2024-12", "DeepSeek-V3", "deepseek"],
+  [/\b(?:DeepSeek[\s-]?)?R1\b/i, "2025-01", "DeepSeek-R1", "deepseek"],
+  [/\bDeepSeek[\s-]?V4/i, "2026-09", "DeepSeek V4", "deepseek"],
+  [/\bQwen[\s-]?1\.5\b/i, "2024-02", "Qwen1.5", "qwen"],
+  [/\bQwen[\s-]?2(?![.\d])/i, "2024-06", "Qwen2", "qwen"],
+  [/\bQwen[\s-]?2\.5\b/i, "2024-09", "Qwen2.5", "qwen"],
+  [/\bQwQ\b/i, "2024-11", "QwQ", "qwen"],
+  [/\bQwen[\s-]?3(?![.\d])/i, "2025-04", "Qwen3", "qwen"],
+  [/\bQwen[\s-]?3\.8\b/i, "2026-08", "Qwen3.8", "qwen"],
+  [/\bKimi[\s-]?K2\b/i, "2025-07", "Kimi K2", "moonshotai"],
+  [/\bKimi[\s-]?K3\b/i, "2026-07", "Kimi K3", "moonshotai"],
+  [/\bGPT[\s-]?3\.5\b/i, "2022-11", "GPT-3.5", "openai"],
+  [/\bGPT[\s-]?5\.1\b/i, "2025-11", "GPT-5.1", "openai"],
+  [/\bGPT[\s-]?5\.2\b/i, "2025-12", "GPT-5.2", "openai"],
+  [/\bClaude[\s-]?2\b/i, "2023-07", "Claude 2", "anthropic"],
+  [/\bGemini[\s-]?(?:1\.0|Ultra)\b/i, "2023-12", "Gemini 1.0", "google"],
+  [/\bGemini[\s-]?3[\s-]?Flash\b/i, "2025-12", "Gemini 3 Flash", "google"],
+  [/\bGrok[\s-]?4\.1\b/i, "2025-11", "Grok 4.1", "x-ai"],
+  [/\bLlama[\s-]?2\b/i, "2023-07", "Llama 2", "meta"],
+  [/\bLlama[\s-]?3\.2\b/i, "2024-09", "Llama 3.2", "meta"],
+  [/\bDeepSeek[\s-]?V3\.1\b/i, "2025-08", "DeepSeek-V3.1", "deepseek"],
+  [/\bDeepSeek[\s-]?V3\.2\b/i, "2025-09", "DeepSeek-V3.2", "deepseek"],
+  [/\bQwen[\s-]?2\.5[\s-]?Max\b/i, "2025-01", "Qwen2.5-Max", "qwen"],
+  [/\bQwen[\s-]?3[\s-]?Max\b/i, "2025-09", "Qwen3-Max", "qwen"],
+  [/\bKimi[\s-]?K2[\s-]?Thinking\b/i, "2025-11", "Kimi K2 Thinking", "moonshotai"],
+  [/\bMistral[\s-]?Large(?![\s-]?2)\b/i, "2024-02", "Mistral Large", "mistralai"],
+  [/\bMixtral[\s-]?8x22B\b/i, "2024-04", "Mixtral 8x22B", "mistralai"],
+  [/\bMistral[\s-]?Large[\s-]?2\b/i, "2024-07", "Mistral Large 2", "mistralai"],
+  [/\bPhi[\s-]?3\b/i, "2024-04", "Phi-3", "microsoft"],
+  [/\bDBRX\b/i, "2024-03", "DBRX", "databricks"],
+  [/\bCommand[\s-]?R\+/i, "2024-04", "Command R+", "cohere"],
+  [/\bYi[\s-]?Large\b/i, "2024-05", "Yi-Large", "01-ai"],
+];
+
+// ---- dev telemetry (local only, silent on failure) ----
+(() => {
+  if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) return;
+  const send = (kind, msg) => { try { fetch("/log", { method: "POST", body: JSON.stringify({ ts: new Date().toISOString(), kind, msg: String(msg).slice(0, 2000) }) }).catch(() => {}); } catch (e) {} };
+  for (const k of ["error", "warn"]) { const o = console[k]; console[k] = (...a) => { send(k, a.join(" ")); o.apply(console, a); }; }
+  addEventListener("error", e => send("exception", `${e.message} @${e.filename}:${e.lineno}`));
+  addEventListener("unhandledrejection", e => send("rejection", e.reason && e.reason.stack || e.reason));
+  try { new PerformanceObserver(l => l.getEntries().forEach(t => t.duration >= LONG_TASK_MS && send("longtask", Math.round(t.duration) + "ms"))).observe({ type: "longtask", buffered: true }); } catch (e) {}
+})();
+
+// ---- parsing ----
+const MONTHS = ["january","february","march","april","may","june","july","august","september","october","november","december"];
+const SEASON = { early: 1, mid: 5, late: 9 };  // month index 0-based
+const DATE_RE = new RegExp(`\\b(${MONTHS.join("|")}|jan|feb|mar|apr|jun|jul|aug|sept?|oct|nov|dec|early|mid|late)\\b\\.?[\\s\\d,-]*?\\b((?:19|20)\\d\\d)\\b|\\b((?:19|20)\\d\\d)-(0[1-9]|1[0-2])(?:-\\d\\d)?\\b`, "gi");
+const ym = s => { const [y, m, d] = s.split("-").map(Number); return y * 12 + m - 1 + (d ? (d - 1) / 30 : 0); };  // fractional month number
+const fmt = n => { n = Math.round(n); return MONTHS[n % 12].slice(0, 3).replace(/^./, c => c.toUpperCase()) + " " + Math.floor(n / 12); };
+const label = q => QUESTION_LABELS[q] || q.replace(/[_-]+/g, " ").replace(/^./, c => c.toUpperCase());
+function dates(s) {  // all month-precise or season dates in s -> [{n, i, season}]; year-only mentions are ignored
+  return [...s.matchAll(DATE_RE)].map(m => {
+    if (m[3]) return { n: +m[3] * 12 + +m[4] - 1, i: m.index, season: false };
+    const w = m[1].toLowerCase(), season = w in SEASON;
+    return { n: +m[2] * 12 + (season ? SEASON[w] : MONTHS.findIndex(x => x.startsWith(w.slice(0, 3)))), i: m.index, season };
+  });
+}
+function reportedDate(answer) {  // -> {n, free} or null
+  if (!answer) return null;
+  const text = answer.replace(/\*/g, "").trim(), cands = [];
+  for (const s of text.split(/(?<=[.!?])\s+|\n+/)) {
+    if (NOT_CUTOFF_RE.test(s)) continue;
+    for (const d of dates(s)) if (!NEG_BEFORE_RE.test(s.slice(0, d.i))) cands.push({ ...d, s });
+  }
+  if (!cands.length) return null;
+  const c = cands.find(d => CUTOFF_SENT_RE.test(d.s)) || cands[0];
+  const distinct = new Set(dates(text).map(d => d.n)).size;
+  const solid = !c.season && (text.length <= CLEAN_ANSWER_CHARS || (distinct === 1 && CUTOFF_SENT_RE.test(c.s) && !VAGUE_RE.test(c.s)));
+  return { n: c.n, free: !solid };
+}
+const top3 = s => s.split("\n").filter(l => l.includes("|")).map(l => l.split("|").map(c => c.trim()));
+function knowledge(r) {  // newest known model mentioned in a sota answer -> {n, label, date} or null
+  if (!r.answer) return null;
+  const lab = r.model.split("/")[0];
+  const text = r.q === TOP3_Q ? top3(r.answer).map(c => c.slice(1).filter(x => !VERSION_DATE_RE.test(x)).join(" ")).join("\n") : r.answer;  // "Model Version", minus date-like versions
+  let best = null;
+  for (const sent of text.replace(/\*/g, "").split(/(?<=[.!?])\s+|\n/)) {
+    if (HEDGE_RE.test(sent)) continue;
+    for (const [re, date, name, mlab] of KNOWN_RELEASES) {
+      if (mlab === lab && date > OWN_LAB_AFTER) continue;
+      if (re.test(sent) && (!best || date > best.date)) best = { n: ym(date), label: name, date };
+    }
+  }
+  return best;
+}
+const median = a => { const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+const short = m => m.split("/").pop();
+const failed = r => !r.answer || r.error;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+// ---- state ----
+let rows = [], qMin = {};
+const openKeys = new Set();
+const A = ym(X_START), B = ym(X_END);
+const pct = n => ((n - A) / (B - A) * 100).toFixed(3) + "%";
+const gi = g => { const i = GROUP_ORDER.indexOf(g); return i < 0 ? GROUP_ORDER.length : i; };
+
+function build(recs) {
+  const byKey = new Map();
+  for (const r of recs) {
+    const variant = r.variant || "api", key = r.model + "|" + variant;
+    if (!byKey.has(key)) byKey.set(key, { key, model: r.model, variant, group: r.lab_group, recs: [] });
+    byKey.get(key).recs.push(r);
+    const pt = r.usage && r.usage.prompt_tokens;
+    if (pt != null) qMin[r.q] = Math.min(qMin[r.q] ?? Infinity, pt);
+  }
+  rows = [...byKey.values()].map((r, i) => ({ ...r, i })).sort((a, b) => gi(a.group) - gi(b.group) || a.i - b.i);
+  for (const row of rows) {
+    const pts = row.recs.filter(r => DATE_Q_RE.test(r.q) && !failed(r)).map(r => ({ ...reportedDate(r.answer), q: r.q })).filter(p => p.n != null);
+    const byN = new Map();  // one dot per month: solid if any clean answer, tooltip counts per question
+    for (const p of pts) {
+      const d = byN.get(p.n) || { n: p.n, free: true, count: 0, qs: {} };
+      d.free = d.free && p.free; d.count++;
+      const k = label(p.q) + (p.free ? " (in text)" : "");
+      d.qs[k] = (d.qs[k] || 0) + 1;
+      byN.set(p.n, d);
+    }
+    row.pts = [...byN.values()].sort((a, b) => a.n - b.n);
+    const clean = pts.filter(p => !p.free);
+    row.reported = pts.length ? median((clean.length ? clean : pts).map(p => p.n)) : null;
+    const know = row.recs.filter(r => r.q === SOTA_Q || r.q === TOP3_Q).map(r => { const k = knowledge(r); return k && { ...k, q: r.q }; }).filter(Boolean);
+    const top = know.length ? Math.max(...know.map(k => k.n)) : null;
+    row.know = top == null ? null : { ...know.find(k => k.n === top), qs: [...new Set(know.filter(k => k.n === top).map(k => label(k.q)))] };
+    row.remembered = top;
+    row.release = RELEASES[row.model] ? ym(RELEASES[row.model]) : null;
+  }
+}
+
+// ---- render ----
+const gridLines = () => {
+  let h = "";
+  for (let n = A; n <= B; n++) if (n % 12 === 0 || n % 12 === 6) h += `<span class="gl${n % 12 ? "" : " y"}" style="left:${pct(n)}"></span>`;
+  return h + `<span class="gl today" style="left:${pct(ym(TODAY))}" title="today ${TODAY}"></span>`;
+};
+
+function trackHtml(row) {
+  let h = gridLines(), side = "";
+  if (row.reported != null && row.remembered != null) {
+    const a = Math.min(row.reported, row.remembered) + 0.5, b = Math.max(row.reported, row.remembered) + 0.5, d = Math.round(row.reported - row.remembered);
+    h += `<span class="gapbar" style="left:${pct(a)};width:calc(${pct(b)} - ${pct(a)})"></span>`;
+    side = (d > 0 ? "+" : "") + d + " mo";
+  }
+  if (!row.pts.length) h += `<span class="nodate">no date given</span>`;
+  if (row.know) h += `<span class="know" style="left:${pct(row.know.n + 0.5)}" title="remembered: ${esc(row.know.label)} · ${row.know.date} (${esc(row.know.qs.join(", "))})"></span>`;
+  h += row.pts.map(p => {
+    const px = Math.min(DOT_MAX_PX, DOT_PX + DOT_GROW_PX * (p.count - 1)).toFixed(1);
+    const tip = `${fmt(p.n)} · ` + Object.entries(p.qs).map(([k, c]) => `${k} ×${c}`).join(", ");
+    return `<span class="dot" style="left:${pct(p.n + 0.5)};width:${px}px;height:${px}px" title="${esc(tip)}"></span>`;
+  }).join("");
+  const last = Math.max(-Infinity, ...row.pts.map(p => p.n + 0.5), row.know ? row.know.n + 0.5 : -Infinity);
+  if (row.release != null && last < row.release) h += `<span class="relline" style="left:${pct(last)};width:calc(${pct(row.release)} - ${pct(last)})"></span>`;
+  if (row.release != null) h += `<span class="rel" style="left:${pct(row.release)}" title="release ${RELEASES[row.model]}"></span>`;
+  return { h, side };
+}
+
+function groupAnswers(recs) {  // identical answers collapse into one entry with a count
+  const m = new Map();
+  for (const r of recs) {
+    const k = failed(r) ? "\u0000failed" : r.answer.trim().replace(/\s+/g, " ");
+    if (!m.has(k)) m.set(k, []);
+    m.get(k).push(r);
+  }
+  return [...m.values()].sort((a, b) => failed(a[0]) - failed(b[0]) || b.length - a.length);
+}
+
+function answerHtml(rs) {
+  const r = rs[0], n = rs.length > 1 ? `<span class="n">×${rs.length}</span>` : "";
+  if (failed(r)) return `<div class="ans meta">no answer${n}</div>`;
+  const hidden = rs.some(x => { const pt = (x.usage || {}).prompt_tokens; return pt != null && pt - (qMin[x.q] ?? pt) > HIDDEN_PROMPT_EXCESS; });
+  const meta = [...new Set(rs.map(x => x.served_by).filter(Boolean))].map(esc).join(", ")
+    + (hidden ? ` · <span class="flag" title="prompt tokens well above other models for this question: likely provider-injected system prompt">hidden prompt</span>` : "");
+  const k = (r.q === SOTA_Q || r.q === TOP3_Q) && knowledge(r);
+  const rows3 = r.q === TOP3_Q ? top3(r.answer) : [];
+  const body = rows3.length ? `<table class="top3">${rows3.map(c => `<tr>${c.slice(0, 3).map(x => `<td>${esc(x)}</td>`).join("")}</tr>`).join("")}</table>`
+    : `<div class="txt${r.q === SOTA_Q ? " clip" : ""}">${esc(r.answer.trim())}</div>${r.q === SOTA_Q ? `<button class="more txt-more">View more</button>` : ""}`;
+  return `<div class="ans">${body}<div class="meta">${k ? `<span class="newest">newest ${esc(k.label)} · ${k.date}</span>` : ""}${n}${meta ? (k || n ? " · " : "") + meta : ""}</div></div>`;
+}
+
+function questionHtml(row, q) {
+  const items = groupAnswers(row.recs.filter(r => r.q === q)).map(answerHtml);
+  return `<div class="q">${esc(label(q))}</div><div class="qt">${esc(QUESTIONS[q] || q)}</div>` + items.slice(0, LIST_MAX).join("")
+    + (items.length > LIST_MAX ? `<button class="more">View more (${items.length - LIST_MAX})</button><div hidden>${items.slice(LIST_MAX).join("")}</div>` : "");
+}
+
+const qOrder = qs => qs.sort((a, b) => { const ka = Object.keys(QUESTIONS).indexOf(a), kb = Object.keys(QUESTIONS).indexOf(b); return (ka < 0) - (kb < 0) || ka - kb || a.localeCompare(b); });
+function detailHtml(row) {  // 2 columns: cutoff questions | top 3 + models known (+ any other questions)
+  const qs = qOrder([...new Set(row.recs.map(r => r.q))]);
+  const col = f => qs.filter(f).map(q => questionHtml(row, q)).join("");
+  return `<div class="cols"><div>${col(q => DATE_Q_RE.test(q))}</div><div>${col(q => !DATE_Q_RE.test(q))}</div></div>`;
+}
+
+function render() {
+  let axis = "";
+  for (let n = A; n <= B; n++) if (n % 12 === 0 || n % 12 === 6) axis += `<span class="${n % 12 ? "" : "y"}" style="left:${pct(n)}">${n % 12 ? "Jul" : Math.floor(n / 12)}</span>`;
+  let h = `<div class="line axis"><div></div><div class="track">${axis}</div><div></div></div>`;
+  for (const r of rows) {
+    const t = trackHtml(r), open = openKeys.has(r.key);
+    h += `<div class="row${open ? " open" : ""}" data-key="${esc(r.key)}"><div class="line">`
+      + `<div class="name" title="${esc(r.model)}">${esc(short(r.model))}${r.variant !== "api" ? ` <span class="meta">${esc(r.variant)}</span>` : ""}</div>`
+      + `<div class="track">${t.h}</div><div class="side" title="reported minus remembered">${t.side}</div></div>`
+      + `<div class="detail"><div>${open ? detailHtml(r) : ""}</div></div></div>`;
+  }
+  document.getElementById("tl").innerHTML = h;
+}
+
+document.getElementById("tl").addEventListener("click", e => {
+  const t = e.target;
+  if (t.classList.contains("txt")) return t.classList.toggle("open");
+  if (t.classList.contains("txt-more")) { const o = t.previousElementSibling.classList.toggle("open"); t.textContent = o ? "View less" : "View more"; return; }
+  if (t.classList.contains("more")) { t.nextElementSibling.hidden = false; return t.remove(); }
+  const line = t.closest(".row > .line");
+  if (!line) return;
+  const row = line.parentElement, key = row.dataset.key, r = rows.find(r => r.key === key);
+  if (openKeys.has(key)) { openKeys.delete(key); row.classList.remove("open"); }
+  else { openKeys.add(key); row.querySelector(".detail > div").innerHTML = detailHtml(r); requestAnimationFrame(() => row.classList.add("open")); }
+});
+
+document.getElementById("legend").innerHTML = `
+  <p>Red dots = cutoff the model reports (${DATE_Q_RE.source.replace(/\W/g, "")} questions, short or free-text answers; hover for which and how many). Bigger dot = more samples at that month. Year-only answers and "current date" mentions aren't plotted.</p>
+  <p>Light-green diamond = what it actually remembers: release month of the newest model it names across all "${label(TOP3_Q)}" and "${label(SOTA_Q)}" answers. Sentences where it says it can't verify a model are skipped, and so are its own lab's models released after ${OWN_LAB_AFTER} (likely from a system prompt, not memory). Approx release months; o3 counts from its Dec 2024 announcement.</p>
+  <p>Thin line and "mo" = reported (${REPORTED_STAT}) minus remembered. Positive = claims a later cutoff than it remembers.</p>
+  <p>Grey arrow = OpenRouter release date; dotted line runs from the newest data point to it. Dashed line = today (${TODAY}).</p>
+  <p><span class="flag">hidden prompt</span> = prompt tokens exceed the per-question minimum by &gt;${HIDDEN_PROMPT_EXCESS}; the bare question is ~10-40 tokens, so the provider likely injected a system prompt.</p>
+  <p>Queried via OpenRouter, clean context, no tools. Click a row for raw answers.</p>`;
+document.getElementById("lgbtn").onclick = () => document.getElementById("legend").classList.toggle("open");
+
+fetch(DATA_URL, { cache: "no-store" }).then(r => r.text()).then(txt => {
+  const recs = txt.split("\n").filter(l => l.trim()).map(l => { try { return JSON.parse(l); } catch (e) { console.warn("bad line", l.slice(0, 80)); return null; } }).filter(Boolean);
+  build(recs);
+  render();
+  const last = recs.map(r => r.ts).sort().pop() || "";
+  document.getElementById("stat").textContent = `${recs.length} runs · ${rows.length} models · last ${last.replace("T", " ")}`;
+}).catch(e => console.error("load failed", e));
+</script>
+</body>
+</html>

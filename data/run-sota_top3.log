@@ -1,0 +1,8 @@
+anthropic/claude-opus-5.5 | OpenAI | GPT | GPT-5 Google DeepMind | Gemini | 2.5 Pro Anthropic | Claude | Opus 4.1
+openai/gpt-6.1-sol | OpenAI | GPT-4.1 | 2025-04-14 Anthropic | Claude Opus 4 | 20250514 Google DeepMind | Gemini 2.5 Pro | 2.5
+google/gemini-4-argon | OpenAI | GPT | 4o Anthropic | Claude | 3.5 Sonnet Google | Gemini | 1.5 Pro
+x-ai/grok-4.7 | OpenAI | GPT-4o | 2024-11-20 Anthropic | Claude 3.5 Sonnet | 20241022 Google DeepMind | Gemini 1.5 Pro | 002
+meta/muse-wonder | OpenAI | GPT | 5 Anthropic | Claude Opus | 4.1 Google DeepMind | Gemini | 2.5 Pro
+moonshotai/kimi-k3 | OpenAI | o1 | Dec 2024 Anthropic | Claude | 3.5 Sonnet Google DeepMind | Gemini | 2.0 Pro
+deepseek/deepseek-v4.1-flash | OpenAI | GPT-4o | 2024-05-13 Anthropic | Claude | 3 Opus Google | Gemini | 1.5 Pro
+qwen/qwen3.8-flash | OpenAI | GPT-4o | 2024-05-13 Google DeepMind | Gemini | 1.5 Pro Anthropic | Claude | 3 Opus

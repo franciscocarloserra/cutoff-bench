@@ -1,0 +1,230 @@
+### cutoff
+anthropic/claude-opus-5.5 | My training data runs through roughly **early 2025**, but I can't pin down an exact date. My knowledge of the last few months before the cutoff is also likely thinner than for earlier periods, since less had been written about recent events when I was trained.  I may not know about events, developme
+anthropic/claude-opus-5.5 | My training data extends to roughly **early 2025**, though I can't pin down an exact date. My knowledge of events in the months just before the cutoff may also be less complete, since less had been written about them when I was trained.  I don't have access to real-time information, so for recent ne
+anthropic/claude-opus-5.5 | My training data extends to roughly **early 2025**, though I'm not fully certain of the exact cutoff. My knowledge of the last few months before it may also be thinner than for earlier periods.  So I may not know about recent events, new developments, or updated information. For anything time-sensit
+anthropic/claude-opus-5.5 | My training data runs through roughly **early 2025**, though I can't pin down the exact date with certainty. A few things to keep in mind:  - **Recent events may be thin.** Coverage of the last few months before my cutoff tends to be less complete, since less had been written about them when I was t
+anthropic/claude-opus-5.5 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+openai/gpt-6.1-sol | My knowledge cutoff date is **August 2025**.
+openai/gpt-6.1-sol | My knowledge cutoff is June 2024.
+openai/gpt-6.1-sol | My knowledge cutoff is **December 2025**.
+openai/gpt-6.1-sol | My knowledge cutoff is **December 2025**.
+openai/gpt-6.1-sol | My knowledge cutoff date is June 2024.
+google/gemini-4-argon | My knowledge cutoff is March 2026. I do not have access to real-time information or events that have occurred since that date unless they are provided directly in our conversation.
+google/gemini-4-argon | My knowledge cutoff is March 2026. I do not have access to real-time information or events that have occurred since that time.
+google/gemini-4-argon | My knowledge cutoff is March 2026. I do not have access to real-time information or events that occurred after that date.
+google/gemini-4-argon | My knowledge cutoff is March 2026. I do not have access to real-time information or events that have occurred since that time unless you provide them directly in our conversation.
+google/gemini-4-argon | My knowledge cutoff is March 2026. I do not have access to real-time information or events that have occurred since that date unless they are provided to me during our conversation.
+x-ai/grok-4.7 | I don’t have a single fixed public knowledge-cutoff date I can state precisely. My training includes information through 2024, and for anything newer I may be incomplete or out of date unless I can look it up.
+x-ai/grok-4.7 | I don’t have a single fixed public knowledge-cutoff date I can state precisely.  My training includes information through sometime before today (2026-08-14), but I can be wrong or out of date on recent events. For anything time-sensitive, check a current source.
+x-ai/grok-4.7 | I don’t have a single fixed public knowledge-cutoff date I can state precisely. My training includes a large amount of information through roughly late 2024 and into 2025, and some Grok products can also use live search. For anything time-sensitive, it’s best to verify against a current source.
+x-ai/grok-4.7 | I don’t have a single fixed knowledge-cutoff date. My training is updated over time, so what I know depends on the model version and when it was last updated. For very recent events, I may not have the latest details unless I can look them up.
+x-ai/grok-4.7 | I don’t have a single fixed knowledge-cutoff date I can state precisely. My training includes a large amount of earlier public information, and what I can answer about very recent events depends on the specific Grok product and whether live tools are available in that session.
+meta/muse-wonder | My knowledge cutoff date is **February 28, 2026**.  That means my training data includes information up to that point, but I don't have built-in knowledge of events that happened after it.
+meta/muse-wonder | My knowledge cutoff date is February 28, 2026.
+meta/muse-wonder | My knowledge cutoff date is February 28, 2026.
+meta/muse-wonder | My knowledge cutoff date is February 28, 2026.
+meta/muse-wonder | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+moonshotai/kimi-k3 | I don’t have a specific knowledge-cutoff date visible to me in this chat. I may know about events up to a certain point in my training, but I can’t reliably cite an exact cutoff date here.  For current or very recent topics, it’s best to ask specifically and I can tell you what I know or flag if I’m
+moonshotai/kimi-k3 | I don’t have a specific knowledge cutoff date provided to me in this environment. I can answer many questions using general knowledge, but for recent events or fast-changing topics, it’s best to verify with up-to-date sources.
+moonshotai/kimi-k3 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+moonshotai/kimi-k3 | My knowledge cutoff is January 2025. This means I'm aware of events and information up to that point, but I don't know about anything that happened after January 2025 unless you share it with me in our conversation.  If you ask me about recent events, I'll do my best to be transparent about whether 
+moonshotai/kimi-k3 | I don’t have access to my exact knowledge cutoff date in this environment, so I don’t want to state an incorrect one. If you need information after a particular date, feel free to share sources or ask and I can help reason from the material you provide.
+deepseek/deepseek-v4.1-flash | My knowledge cutoff is October 2023.
+deepseek/deepseek-v4.1-flash | My knowledge cutoff date is October 2023.
+deepseek/deepseek-v4.1-flash | My knowledge cutoff is **June 2024**. I don’t have real-time web access unless a search or browsing tool is enabled.
+deepseek/deepseek-v4.1-flash | My knowledge cutoff is October 2023.
+deepseek/deepseek-v4.1-flash | My knowledge cutoff is **October 2023**. I don’t have real-time awareness beyond that unless browsing or other tools are enabled.
+qwen/qwen3.8-flash | My knowledge cutoff date is 2026.
+qwen/qwen3.8-flash | My knowledge cutoff is 2026.
+qwen/qwen3.8-flash | My knowledge cutoff date is 2026.
+qwen/qwen3.8-flash | My knowledge cutoff is through 2026.
+qwen/qwen3.8-flash | I don’t have an exact publicly stated knowledge cutoff date in this conversation. My knowledge comes from a large pretraining corpus prepared by Alibaba Cloud’s Tongyi Lab, with a cutoff before the current date, but the specific date isn’t specified here.
+google/gemma-4-31b-it | My knowledge cutoff date is January 2025.
+google/gemma-4-31b-it | My knowledge cutoff date is January 2025.
+google/gemma-4-31b-it | My knowledge cutoff date is **January 2025**.
+google/gemma-4-31b-it | My knowledge cutoff date is **January 2025**.
+google/gemma-4-31b-it | My knowledge cutoff date is **January 2025**.
+### cutoff_month
+anthropic/claude-opus-5.5 | January 2025
+anthropic/claude-opus-5.5 | January 2025
+anthropic/claude-opus-5.5 | January 2025
+anthropic/claude-opus-5.5 | January 2025
+anthropic/claude-opus-5.5 | January 2025
+openai/gpt-6.1-sol | June 2024
+openai/gpt-6.1-sol | June 2024
+openai/gpt-6.1-sol | June 2024
+openai/gpt-6.1-sol | June 2024
+openai/gpt-6.1-sol | June 2024
+google/gemini-4-argon | March 2026
+google/gemini-4-argon | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+google/gemini-4-argon | March 2026
+google/gemini-4-argon | March 2026
+google/gemini-4-argon | March 2026
+x-ai/grok-4.7 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+x-ai/grok-4.7 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+x-ai/grok-4.7 | November 2024
+x-ai/grok-4.7 | November 2024
+x-ai/grok-4.7 | I don’t have a single fixed knowledge-cutoff month I can state accurately.
+meta/muse-wonder | February 2026
+meta/muse-wonder | February 2026
+meta/muse-wonder | February 2026
+meta/muse-wonder | February 2026
+meta/muse-wonder | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+moonshotai/kimi-k3 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+moonshotai/kimi-k3 | June 2024
+moonshotai/kimi-k3 | January 2025
+moonshotai/kimi-k3 | June 2024
+moonshotai/kimi-k3 | October 2024
+deepseek/deepseek-v4.1-flash | June 2024
+deepseek/deepseek-v4.1-flash | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+deepseek/deepseek-v4.1-flash | 
+deepseek/deepseek-v4.1-flash | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+deepseek/deepseek-v4.1-flash | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+qwen/qwen3.8-flash | 
+qwen/qwen3.8-flash | January 2026
+qwen/qwen3.8-flash | June 2026
+qwen/qwen3.8-flash | January 2026
+qwen/qwen3.8-flash | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+google/gemma-4-31b-it | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+google/gemma-4-31b-it | January 2025
+google/gemma-4-31b-it | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+google/gemma-4-31b-it | January 2025
+google/gemma-4-31b-it | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+### cutoff_forced
+anthropic/claude-opus-5.5 | January 2025
+anthropic/claude-opus-5.5 | January 2025
+anthropic/claude-opus-5.5 | January 2025
+anthropic/claude-opus-5.5 | January 2025
+anthropic/claude-opus-5.5 | January 2025
+openai/gpt-6.1-sol | June 2024
+openai/gpt-6.1-sol | June 2024
+openai/gpt-6.1-sol | June 2024
+openai/gpt-6.1-sol | June 2024
+openai/gpt-6.1-sol | June 2024
+google/gemini-4-argon | March 2026
+google/gemini-4-argon | March 2026
+google/gemini-4-argon | March 2026
+google/gemini-4-argon | March 2026
+google/gemini-4-argon | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+x-ai/grok-4.7 | December 2024
+x-ai/grok-4.7 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+x-ai/grok-4.7 | November 2024
+x-ai/grok-4.7 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+x-ai/grok-4.7 | November 2024
+meta/muse-wonder | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+meta/muse-wonder | February 2026
+meta/muse-wonder | February 2026
+meta/muse-wonder | February 2026
+meta/muse-wonder | February 2026
+moonshotai/kimi-k3 | March 2025
+moonshotai/kimi-k3 | June 2024
+moonshotai/kimi-k3 | March 2025
+moonshotai/kimi-k3 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+moonshotai/kimi-k3 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+deepseek/deepseek-v4.1-flash | June 2024
+deepseek/deepseek-v4.1-flash | 
+deepseek/deepseek-v4.1-flash | 
+deepseek/deepseek-v4.1-flash | 
+deepseek/deepseek-v4.1-flash | October 2023
+qwen/qwen3.8-flash | January 2026
+qwen/qwen3.8-flash | May 2026
+qwen/qwen3.8-flash | January 2025
+qwen/qwen3.8-flash | January 2026
+qwen/qwen3.8-flash | December 2024
+google/gemma-4-31b-it | January 2024
+google/gemma-4-31b-it | October 2023
+google/gemma-4-31b-it | October 2023
+google/gemma-4-31b-it | January 2025
+google/gemma-4-31b-it | October 2023
+### sota_top3
+anthropic/claude-opus-5.5 | OpenAI | GPT | 5 Google DeepMind | Gemini | 2.5 Pro Anthropic | Claude | Opus 4
+anthropic/claude-opus-5.5 | OpenAI | GPT | 5 Anthropic | Claude | Opus 4.1 Google DeepMind | Gemini | 2.5 Pro
+anthropic/claude-opus-5.5 | OpenAI | GPT | 5 Google DeepMind | Gemini | 2.5 Pro Anthropic | Claude | Opus 4.1
+anthropic/claude-opus-5.5 | OpenAI | GPT | GPT-5 Google DeepMind | Gemini | 2.5 Pro Anthropic | Claude | Opus 4.1
+anthropic/claude-opus-5.5 | OpenAI | GPT | 5 Google DeepMind | Gemini | 2.5 Pro Anthropic | Claude | Opus 4.1
+openai/gpt-6.1-sol | OpenAI | GPT | 5.2 Anthropic | Claude Opus | 4.5 Google DeepMind | Gemini Pro | 3
+openai/gpt-6.1-sol | OpenAI | o3 | 2025-04-16 Anthropic | Claude Opus | 4 Google DeepMind | Gemini Pro | 2.5
+openai/gpt-6.1-sol | OpenAI | GPT | 5 Anthropic | Claude Opus | 4.1 Google DeepMind | Gemini Pro | 2.5
+openai/gpt-6.1-sol | OpenAI | GPT-5 | 5 Anthropic | Claude Opus | 4.1 Google DeepMind | Gemini Pro | 2.5
+openai/gpt-6.1-sol | OpenAI | o3 | 2025-04-16 Anthropic | Claude Opus | 4 Google DeepMind | Gemini | 2.5 Pro
+google/gemini-4-argon | OpenAI | GPT | 4o Anthropic | Claude | 3.5 Sonnet Google | Gemini | 1.5 Pro
+google/gemini-4-argon | OpenAI | GPT | 4o Anthropic | Claude | 3.5 Sonnet Google | Gemini | 1.5 Pro
+google/gemini-4-argon | OpenAI | GPT | 4o Anthropic | Claude | 3.5 Sonnet Google | Gemini | 1.5 Pro
+google/gemini-4-argon | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+google/gemini-4-argon | OpenAI | GPT | 4o Anthropic | Claude | 3.5 Sonnet Google | Gemini | 1.5 Pro
+x-ai/grok-4.7 | OpenAI | GPT-4o | 2024-08-06 Anthropic | Claude | 3.5 Sonnet Google | Gemini | 1.5 Pro
+x-ai/grok-4.7 | OpenAI | GPT-4o | 2024-11-20 Anthropic | Claude 3.5 Sonnet | 20241022 Google DeepMind | Gemini 1.5 Pro | 002
+x-ai/grok-4.7 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+x-ai/grok-4.7 | OpenAI | GPT-4o | 2024-11-20 Anthropic | Claude 3.5 Sonnet | 20241022 Google DeepMind | Gemini 1.5 Pro | 002
+x-ai/grok-4.7 | OpenAI | GPT-4o | 2024-11-20 Anthropic | Claude 3.5 Sonnet | 20241022 Google | Gemini 1.5 Pro | 002
+meta/muse-wonder | OpenAI | GPT | 5.2 Anthropic | Claude Opus | 4.5 Google DeepMind | Gemini | 3
+meta/muse-wonder | OpenAI | GPT | 5.2 Anthropic | Claude Opus | 4.5 Google DeepMind | Gemini | 3
+meta/muse-wonder | OpenAI | GPT | 5.2 Anthropic | Claude Opus | 4.5 Google DeepMind | Gemini | 3
+meta/muse-wonder | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+meta/muse-wonder | OpenAI | GPT | 5.2 Anthropic | Claude Opus | 4.5 Google DeepMind | Gemini | 3
+moonshotai/kimi-k3 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+moonshotai/kimi-k3 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+moonshotai/kimi-k3 | OpenAI | o1 | o1-2024-12-17 Anthropic | Claude 3.5 Sonnet | claude-3-5-sonnet-20241022 Google DeepMind | Gemini 2.0 Flash | gemini-2.0-flash-exp
+moonshotai/kimi-k3 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+moonshotai/kimi-k3 | OpenAI | GPT-4 | GPT-4o Anthropic | Claude | 3.5 Sonnet Google DeepMind | Gemini | 1.5 Pro
+deepseek/deepseek-v4.1-flash | OpenAI | GPT-4o | 2024-05-13 Anthropic | Claude 3 | Opus Google DeepMind | Gemini 1.5 | Pro
+deepseek/deepseek-v4.1-flash | OpenAI | GPT-4o | 2024-05-13 Anthropic | Claude 3.5 Sonnet | 2024-06-20 Google | Gemini 1.5 Pro | 002
+deepseek/deepseek-v4.1-flash | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+deepseek/deepseek-v4.1-flash | OpenAI | GPT-4o | 2024-05-13 Anthropic | Claude | 3 Opus Google | Gemini | 1.5 Pro
+deepseek/deepseek-v4.1-flash | OpenAI | GPT-4o | 2024-05-13 Anthropic | Claude 3 | Opus Google | Gemini 1.5 | Pro
+qwen/qwen3.8-flash | OpenAI | GPT-4 | 4o Anthropic | Claude | 3.5 Sonnet Google | Gemini | 1.5 Pro
+qwen/qwen3.8-flash | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+qwen/qwen3.8-flash | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+qwen/qwen3.8-flash | OpenAI | GPT-4o | 2024-05 Anthropic | Claude 3 Opus | 2024-03 Google | Gemini 1.5 Pro | 2024-05
+qwen/qwen3.8-flash | OpenAI | GPT-5 | 2025 Anthropic | Claude Opus 4.1 | 2025 Google DeepMind | Gemini 2.5 Pro | 2025
+google/gemma-4-31b-it | OpenAI | GPT-4 | o1 Anthropic | Claude | 3.5 Sonnet Google | Gemini | 1.5 Pro
+google/gemma-4-31b-it | OpenAI | GPT-4 | o1 Anthropic | Claude | 3.5 Sonnet Google | Gemini | 1.5 Pro
+google/gemma-4-31b-it | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+google/gemma-4-31b-it | OpenAI | GPT | 4o Anthropic | Claude | 3.5 Sonnet Google | Gemini | 1.5 Pro
+google/gemma-4-31b-it | OpenAI | GPT-4o | 2024-05-13 Anthropic | Claude | 3.5 Sonnet Google | Gemini | 1.5 Pro
+### sota
+anthropic/claude-opus-5.5 | Here are the leading large language models I'm aware of. The field moves very fast, so newer releases have likely appeared since my training data ends.  ## Proprietary / Closed Models  **OpenAI** - **GPT-4o**: multimodal (text, image, audio), fast and widely deployed - **o1 / o3 / o4-mini**: "reason
+anthropic/claude-opus-5.5 | Here are the leading large language models as of my knowledge cutoff. This field moves very fast, so newer versions have likely been released since.  ## Proprietary / Closed Models  **OpenAI** - **GPT-4o**: multimodal (text, image, audio), fast, widely deployed - **GPT-4.1**: improved coding and lon
+anthropic/claude-opus-5.5 | Here are the leading large language models as of my knowledge cutoff. This field moves very fast, so newer releases have likely appeared since.  ## Proprietary / Closed Models  **OpenAI** - **GPT-4o**: multimodal (text, image, audio), fast, widely used - **o1 / o3 / o4-mini**: "reasoning" models tha
+anthropic/claude-opus-5.5 | Here are the leading large language models as of my training data. This field moves very quickly, so newer versions have likely been released since.  ## Proprietary / Closed Models  **OpenAI** - **GPT-4o**: multimodal (text, image, audio), fast, widely used - **o1 / o3 series**: "reasoning" models t
+anthropic/claude-opus-5.5 | Here are the leading large language models as of my knowledge cutoff. This field moves very fast, so newer versions have likely been released since.  ## Proprietary / Closed Models  **OpenAI** - **GPT-4o**: multimodal (text, image, audio), fast and widely used - **GPT-4.1** and **GPT-4.5**: improvem
+openai/gpt-6.1-sol | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+openai/gpt-6.1-sol | The leading models I know of are listed below—but **my knowledge stops at August 2025**, so this isn’t a verified ranking of what’s best today.  | Model or family | Developer | Notable strengths | |---|---|---| | **GPT-5** | OpenAI | Flagship general-purpose model, with strong reasoning, coding, and
+openai/gpt-6.1-sol | My reliable knowledge goes through **June 2024**, so I can name the leading models from that period—but not guarantee these are today’s leaders.  ### Leading proprietary models  | Model | Developer | Notable strengths | |---|---|---| | **GPT-4o** | OpenAI | Strong general-purpose reasoning, coding, 
+openai/gpt-6.1-sol | My reliable knowledge goes through **June 2024**, so I can identify leading models from that period—not confidently rank the newest models available today.  ### Leading proprietary models | Model | Developer | Notable strengths | |---|---|---| | **GPT-4o** | OpenAI | Strong general-purpose performan
+openai/gpt-6.1-sol | “Top” depends on whether you care most about reasoning, coding, multimodal input, speed, cost, or running the model yourself. **I don’t have a live leaderboard here**, so this is a shortlist of strong models I can name—not a verified ranking of the newest releases.  ### Leading proprietary models  |
+google/gemini-4-argon | The landscape of state-of-the-art (SOTA) Large Language Models (LLMs) is currently divided into two main categories: **Proprietary (Closed-Source)** models, which generally lead in overall reasoning and multimodal capabilities, and **Open-Weight (Open-Source)** models, which offer transparency, cust
+google/gemini-4-argon | The landscape of Large Language Models (LLMs) moves incredibly fast, with different models taking the crown depending on the specific task (e.g., coding, creative writing, reasoning, or multimodal capabilities).   Currently, the industry is divided into two main camps: **Closed-Source (Proprietary)*
+google/gemini-4-argon | The landscape of Large Language Models (LLMs) moves incredibly fast, with different models taking the crown depending on the specific task (e.g., coding, reasoning, creative writing, or speed).   As of mid-2024, the top state-of-the-art (SOTA) models are generally divided into two categories: **Prop
+google/gemini-4-argon | The landscape of Large Language Models (LLMs) moves incredibly fast, with the "State-of-the-Art" (SOTA) title changing hands frequently. Currently, the market is divided into two main categories: **Proprietary (Closed-Source) Frontier Models** and **Open-Weight Models**.  Here are the top state-of-t
+google/gemini-4-argon | The landscape of state-of-the-art (SOTA) Large Language Models (LLMs) moves extremely fast. Currently, the market is divided between **proprietary (closed-source)** models, which generally lead in raw performance, and **open-weights (open-source)** models, which are rapidly closing the gap.   Here a
+x-ai/grok-4.7 | There isn’t a single permanent ranking—frontier models move fast, and “best” depends on the task (reasoning, coding, long context, multimodal, cost, latency, openness). As of the latest widely discussed generation, these are the main state-of-the-art families:  **Closed / API frontier models** - **O
+x-ai/grok-4.7 | There isn’t a single permanent “best” model—rankings shift every few months and depend on the task (reasoning, coding, long context, multimodal, cost, latency). As of the current frontier, these are the ones most often treated as state of the art:  **Closed / API frontier models** - **OpenAI:** GPT-
+x-ai/grok-4.7 | There isn’t a single permanent ranking—benchmarks and product releases move quickly—but these are widely regarded as the leading large language models right now.  **Closed / API frontier models** - **OpenAI:** GPT-4.1 family and the o-series reasoning models (o3, o4-mini). Strong general capability,
+x-ai/grok-4.7 | “Top” depends on the task (reasoning, coding, multimodal, cost, latency, open vs. closed weights), and rankings shift quickly. These are the main frontier-class models and families that have defined the state of the art recently:  **Closed / API models** - **OpenAI:** GPT-4o and the o-series reasoni
+x-ai/grok-4.7 | There isn’t a single permanent ranking—frontier models move fast, and “best” depends on the task (reasoning, coding, long context, multimodal, cost, latency). These are the main state-of-the-art families people usually mean:  **Closed / API frontier models** - **OpenAI:** GPT-4o and the o-series rea
+meta/muse-wonder | As of early 2026, the frontier has split into two groups: **closed proprietary models** (best absolute performance) and **open-weight models** (nearly as good, and you can run/host them yourself).  Here are the current leaders:  ### 1. Top Proprietary / Closed Models  **Google Gemini 3 Pro & Gemini 
+meta/muse-wonder | As of my latest knowledge in early 2026, the frontier has converged around a few families. The top models are now all reasoning, multimodal, and agentic — not just chatbots.  Here are the state-of-the-art ones that matter:  ### 1. Frontier Closed Models  **1. Google Gemini 3 Pro / Gemini 2.5 Pro** *
+meta/muse-wonder | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+meta/muse-wonder | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+meta/muse-wonder | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+moonshotai/kimi-k3 | As of my knowledge cutoff (end of January 2025), here are the models generally considered frontier or near-frontier. Keep in mind this field moves extremely fast, so the landscape has likely shifted since then.  ## Frontier proprietary models  - **OpenAI o1 / o1 pro** — Reasoning models that "think"
+moonshotai/kimi-k3 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+moonshotai/kimi-k3 | As of my knowledge cutoff (early 2025), here are the leading LLMs, organized by developer:  ## Proprietary Models  **OpenAI** - **o1 / o1-pro** – Reasoning-focused models that use extended chain-of-thought; strong at math, coding, and science - **GPT-4o** – Flagship multimodal model (text, vision, a
+moonshotai/kimi-k3 | HTTP Error 402: Payment Required {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budg
+moonshotai/kimi-k3 | As of my knowledge cutoff (early 2025), here are the models generally considered state-of-the-art, grouped by category:  **Frontier general-purpose models** - **OpenAI GPT-4o / GPT-4.5** — strong all-around performance, multimodal - **Anthropic Claude 3.5 Sonnet / Claude 3.7 Sonnet** — highly regard
+deepseek/deepseek-v4.1-flash | My knowledge cutoff is **June 2024**, so I can’t reliably rank the 2025–2026 frontier. The field changes monthly, and “state of the art” depends on the task: reasoning, coding, math, long context, multimodality, open weights, cost, latency, etc.  As of my reliable knowledge, the top-tier LLMs were r
+deepseek/deepseek-v4.1-flash | **Important caveat:** My knowledge cutoff is **June 2024**, so I can’t reliably rank models released after that. The 2025–2026 frontier has almost certainly moved. Treat this as a mid-2024 snapshot, not a current leaderboard.  As of mid-2024, the models I’d put at or near the top were roughly:  **Fr
+deepseek/deepseek-v4.1-flash | Important caveat: my reliable knowledge cutoff is around mid-2024, so I can’t give a verified May 2026 leaderboard. The “top” list changes monthly and depends on the benchmark. That said, the strongest models I knew of as frontier/SOTA around mid-2024 were:  **Closed-source / proprietary frontier** 
+deepseek/deepseek-v4.1-flash | State of the art is a moving target and depends on the task—reasoning, coding, long context, multimodality, open weights, cost, etc. My knowledge cutoff is **June 2024**, so this is a mid-2024 snapshot rather than a reliable May 2026 ranking.  As of my cutoff, the top-tier large language models I’d 
+deepseek/deepseek-v4.1-flash | I can’t give a reliable **2026** ranking because my knowledge cutoff is **June 2024**. The field moves very fast, so treat this as a mid-2024 snapshot rather than current state-of-the-art.  As of my cutoff, the leading large language models I’d call state-of-the-art were:  **Frontier / proprietary**
+qwen/qwen3.8-flash | Up to my knowledge cutoff in **June 2024**, the “state-of-the-art” LLM landscape was dominated by a few proprietary frontier models and a rapidly improving set of open-weight/open-source models. “Top” depends on the benchmark and use case—reasoning, coding, multilingual ability, long-context handlin
+qwen/qwen3.8-flash | As an AI model developed by Alibaba Group's Tongyi Lab, I primarily focus on my own capabilities and the broader trends in large language model development. Here are some widely recognized state-of-the-art LLMs across different organizations (as of 2024):  **Notable Models by Developer:**  1. **Qwen
+qwen/qwen3.8-flash | As Qwen3.8, my reliable knowledge is through **June 2024**, so I can’t give a real-time 2026 leaderboard. But based on what I know up to that cutoff, the **state-of-the-art / frontier large language models** were generally these:  | Model family | Developer | Why it was considered SOTA | |---|---:|-
+qwen/qwen3.8-flash | The “top” state-of-the-art LLMs depend on the benchmark, use case, and whether you prioritize reasoning, coding, long context, multimodality, open weights, or cost. That said, widely cited frontier models include:  - **OpenAI GPT-4o / o-series models** — strong general reasoning, coding, multimodal 
+qwen/qwen3.8-flash | There isn’t a single definitive “top” list because state-of-the-art LLM performance depends on the benchmark, modality, context length, safety alignment, deployment cost, open-weight license, and whether you care about chat, coding, reasoning, agent workflows, or multimodal tasks. That said, based o
+google/gemma-4-31b-it | Because the landscape of AI moves so quickly, "State-of-the-Art" (SOTA) is typically categorized by the **intended use case**: whether you need maximum reasoning power, a fast/cheap API, or a model you can run locally on your own hardware.  Here are the current top-tier models as of late 2024:  ### 
+google/gemma-4-31b-it | The landscape of Large Language Models (LLMs) changes almost weekly, but as of late 2024, the "state-of-the-art" (SOTA) is generally divided into three categories: **Proprietary Giants**, **Open-Weight Powerhouses**, and **Specialized/Reasoning Models**.  Here are the top models currently dominating
+google/gemma-4-31b-it | The landscape of Large Language Models (LLMs) moves incredibly fast, but as of late 2024, the "state-of-the-art" (SOTA) is generally divided into three categories: **Proprietary Giants** (closed source), **Open-Weight Powerhouses** (accessible for local deployment), and **Specialized/Reasoning Model
+google/gemma-4-31b-it | The landscape of Large Language Models (LLMs) moves incredibly fast, but as of late 2024, the "state-of-the-art" (SOTA) is generally divided into three categories: **Proprietary Giants**, **Open-Weights/Open-Source**, and **Specialized/Reasoning** models.  Here are the top models currently dominatin
+google/gemma-4-31b-it | The landscape of Large Language Models (LLMs) changes almost weekly, but as of late 2024, the "state-of-the-art" (SOTA) is generally divided into three categories: **Closed-Source Giants**, **Open-Weight Powerhouses**, and **Specialized/Reasoning Models**.  Here are the top models currently dominati
