@@ -28,8 +28,8 @@
   .gl.today { background:none; border-left:1px dashed #3a3e45; }
   .gapbar { position:absolute; top:50%; height:1px; background:var(--gap); }
   .dot { position:absolute; top:50%; border-radius:50%; background:var(--cut); transform:translate(-50%,-50%); z-index:2; }
-  .relline { position:absolute; top:50%; border-top:1px dotted #555a62; }
-  .know { position:absolute; top:50%; width:13px; height:13px; border:1.5px solid var(--know); background:var(--know); transform:translate(-50%,-50%) rotate(45deg); border-radius:2px; z-index:1; }
+  .relline { position:absolute; top:50%; border-top:2px solid var(--cut); opacity:.7; transform:translateY(-50%); }
+  .know { position:absolute; top:50%; width:13px; height:13px; border:1.5px solid var(--know); background:var(--know); transform:translate(-50%,-50%) rotate(45deg); border-radius:2px; z-index:3; }
   .rel { position:absolute; top:50%; width:0; height:0; border-top:5px solid transparent; border-bottom:5px solid transparent; border-left:8px solid var(--rel); transform:translate(-100%,-50%); opacity:.8; }
   .nodate { position:absolute; left:8px; top:50%; transform:translateY(-50%); color:var(--dim); font-style:italic; font-size:11px; }
   .side { color:var(--dim); font-size:11px; text-align:right; padding-right:6px; }
@@ -305,8 +305,8 @@ function trackHtml(row) {
     const tip = `${fmt(p.n)} · ` + Object.entries(p.qs).map(([k, c]) => `${k} ×${c}`).join(", ");
     return `<span class="dot" style="left:${pct(p.n + 0.5)};width:${px}px;height:${px}px" title="${esc(tip)}"></span>`;
   }).join("");
-  const last = Math.max(-Infinity, ...row.pts.map(p => p.n + 0.5), row.know ? row.know.n + 0.5 : -Infinity);
-  if (row.release != null && last < row.release) h += `<span class="relline" style="left:${pct(last)};width:calc(${pct(row.release)} - ${pct(last)})"></span>`;
+  const last = row.know ? row.know.n + 0.5 : null;
+  if (row.release != null && last != null && last < row.release) h += `<span class="relline" style="left:${pct(last)};width:calc(${pct(row.release)} - ${pct(last)})"></span>`;
   if (row.release != null) h += `<span class="rel" style="left:${pct(row.release)}" title="release ${RELEASES[row.model]}"></span>`;
   return { h, side };
 }
@@ -377,7 +377,7 @@ document.getElementById("legend").innerHTML = `
   <p>Red dots = cutoff the model reports (${DATE_Q_RE.source.replace(/\W/g, "")} questions, short or free-text answers; hover for which and how many). Bigger dot = more samples at that month. Year-only answers and "current date" mentions aren't plotted.</p>
   <p>Light-green diamond = what it actually remembers: release month of the newest model it names across all "${label(TOP3_Q)}" and "${label(SOTA_Q)}" answers. Sentences where it says it can't verify a model are skipped, and so are its own lab's models released after ${OWN_LAB_AFTER} (likely from a system prompt, not memory). Approx release months; o3 counts from its Dec 2024 announcement.</p>
   <p>Thin line and "mo" = reported (${REPORTED_STAT}) minus remembered. Positive = claims a later cutoff than it remembers.</p>
-  <p>Grey arrow = OpenRouter release date; dotted line runs from the newest data point to it. Dashed line = today (${TODAY}).</p>
+  <p>Grey arrow = OpenRouter release date; red line = months between what it remembers and its release. Dashed line = today (${TODAY}).</p>
   <p><span class="flag">hidden prompt</span> = prompt tokens exceed the per-question minimum by &gt;${HIDDEN_PROMPT_EXCESS}; the bare question is ~10-40 tokens, so the provider likely injected a system prompt.</p>
   <p>Queried via OpenRouter, clean context, no tools. Click a row for raw answers.</p>`;
 document.getElementById("lgbtn").onclick = () => document.getElementById("legend").classList.toggle("open");
